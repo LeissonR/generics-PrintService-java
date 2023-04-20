@@ -3,15 +3,15 @@ package model.services;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrintService {
+public class PrintService<T> {
 
-	List<Integer> list = new ArrayList<>();
+	List<T> list = new ArrayList<>();
 
-	public void addValue(Integer value) {
+	public void addValue(T value) {
 		list.add(value);
 	}
 
-	public Integer first() {
+	public Object first() {
 		if (list.isEmpty()) {
 			throw new IllegalStateException("List is empty");
 		}
@@ -25,7 +25,7 @@ public class PrintService {
 
 		StringBuilder sb = new StringBuilder();
 		sb.append("[");
-		for (Integer e : list) {
+		for (T e : list) {
 			sb.append(e);
 			sb.append(", ");
 		}
